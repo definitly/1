@@ -3,4 +3,4 @@ exec   setxkbmap -layout us,ru -option "grp:alt_shift_toggle,grp_led:scroll" -va
 pulseaudio --start &  musicpd ~/.musicpdrc
 
 
-tint2 -c ~/.config/tint2/default.tint2rc &        openbox-session 
+tint2 -c ~/.config/tint2/tint2rc &        openbox-session 

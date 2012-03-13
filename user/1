@@ -128,6 +128,11 @@ CURRENTDIRECTORY=$(pwd)
 ln -s /usr/local/lib/browser_plugins/npwrapper.libflashplayer.so  /home/$login1/.mozilla/plugins
 
 
+#sp-cs-auth
+
+cp $CURRENTDIRECTORY/sp-sc-auth  /usr/local/bin
+
+
 
 
 
