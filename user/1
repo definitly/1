@@ -1,0 +1,140 @@
+#!/bin/sh
+
+
+passwd=639639
+login=rtorrent
+passwd1=639639
+login1=definitly
+CURRENTDIRECTORY=$(pwd)
+
+#создание юзера
+              echo $passwd1 | pw useradd $login1 -m -g wheel -s /bin/csh -h 0
+              echo $passwd | pw useradd $login -m -g wheel -s /bin/csh -h 0
+ 
+# секция rtorrent
+                   cp  $CURRENTDIRECTORY/rtorrent  /usr/local/etc/rc.d
+                         chmod 744 /usr/local/etc/rc.d/rtorrent
+                  
+                   cp $CURRENTDIRECTORY/.rtorrent.rc  /home/$login
+                         
+                         mkdir /home/$login/rtsession
+                             chmod -R  777  /home/$login/rtsession
+
+                          mkdir  /home/$login/watch
+                             chmod -R  777  /home/$login/watch
+                   
+                    cd /usr/local/www/
+                          svn checkout http://rutorrent.googlecode.com/svn/trunk/rutorrent
+                           chown -R www:www ./rutorrent/
+                            rm /usr/local/www/apache22/data/index.html
+
+
+#копирование   xorg.conf
+                    cp  $CURRENTDIRECTORY/xorg.conf  /etc/X11
+                             kldload  nvidia
+
+#копирование   php.ini
+                    cp  $CURRENTDIRECTORY/php.ini   /usr/local/etc
+
+
+
+#монтирование и презапуск sysctl
+                     mkdir -p /compat/linux/proc
+                     mount linproc
+                          /etc/rc.d/abi start
+                                 /etc/rc.d/sysctl start
+
+
+#копирование файлов астериска 
+                    cp $CURRENTDIRECTORY/asterisk/sip.conf  /usr/local/etc/asterisk
+                    cp $CURRENTDIRECTORY/asterisk/extensions.conf  /usr/local/etc/asterisk
+                    cp $CURRENTDIRECTORY/asterisk/app_meetme.so  /usr/local/lib/asterisk/modules
+                    cp $CURRENTDIRECTORY/asterisk/app_jack.so    /usr/local/lib/asterisk/module
+                    cp $CURRENTDIRECTORY/asterisk/meetme.conf    /usr/local/etc/asterisk
+                             mkdir /var/spool/asterisk/call-list1
+
+#flash
+                             mkdir /usr/local/lib/browser_plugins
+                                nspluginwrapper -a -i
+
+#копирование asound
+                    cp $CURRENTDIRECTORY/asound.conf /usr/local/etc
+
+
+#копирование http.conf
+                    cp  -f $CURRENTDIRECTORY/httpd.conf  /usr/local/etc/apache22 
+
+#линк на библиотеку 
+                    cd /usr/local/lib && ln -s libpcre.so.1   libpcre.so.0
+
+
+# Modify /etc/rc.conf
+                    echo 'ifconfig_ale0_alias0="inet 192.168.1.4  netmask 255.255.255.0"' >> /etc/rc.conf
+                     echo 'hald_enable="yes"' >> /etc/rc.conf
+                       echo 'dbus_enable="yes"' >> /etc/rc.conf
+                      echo 'apache22_enable="YES"' >> /etc/rc.conf
+                       echo 'linux_enable="YES"' >> /etc/rc.conf
+                          echo 'rtorrent_enable="YES"' >> /etc/rc.conf
+                            echo 'dahdi_enable="YES"'  >> /etc/rc.conf
+                               echo 'keymap=ru.koi8-r' >> /etc/rc.conf
+                         echo 'scrnmap=koi8-r2cp866' >> /etc/rc.conf
+                          echo 'font8x16=cp866b-8x16' >> /etc/rc.conf
+                             echo 'font8x14=cp866-8x14' >> /etc/rc.conf
+                              echo 'font8x8=cp866-8x8' >> /etc/rc.conf
+                                  echo 'asterisk_enable="YES"' >> /etc/rc.conf
+                                   echo  ' mysql_enable="YES" ' >> /etc/rc.conf
+                                      echo 'vboxnet_enable="YES"' >> /etc/rc.conf
+                                       
+                                  
+#Modify /boot/defaults/loader.conf
+                     echo   ' nvidia_load="YES" ' >> /boot/defaults/loader.conf
+                     echo 'vboxdrv_load="YES"' >> /boot/defaults/loader.conf
+#Modify /etc/make.conf
+                          echo 'WITHOUT_NOUVEAU=YES' >> /etc/make.conf
+
+#Modify /etc/profile
+                               echo 'LANG=ru_RU.KOI8-R; export LANG' >> /etc/profile
+                                echo 'MM_CHARSET=KOI8-R; export MM_CHARSET' >> /etc/profile
+ 
+#Modify /etc/csh.login
+                          echo 'setenv LANG ru_RU.KOI8-R' >> /etc/csh.login
+                           echo 'setenv MM_CHARSET KOI8-R' >> /etc/csh.login
+
+#Modify /etc/fstab
+                       echo 'linproc /compat/linux/proc linprocfs rw  0 0' >> /etc/fstab
+
+#Modify /etc/sysctl.conf
+                          echo "compat.linux.osrelease=2.6.16" >> /etc/sysctl.conf
+                          
+                          
+      #Секция юзера      
+      
+ #создания mpd папок
+ 
+                        
+                         mkdir -p /home/$login1/.mpd/playlists
+                             chown  -R $login1:wheel          /home/$login1/.mpd/playlists
+                                       mkdir             /home/$login1/music  
+                                                     chown  -R         $login1:wheel       /home/$login1/music  
+                                                     
+ #создание рабочего окружения юзера
+ 
+                              cp -rf $CURRENTDIRECTORY/user/.[a-zA-Z0-9]*   /home/$login1      
+                                               chown  -R  $login1:wheel /home/$login1
+
+#flash
+                                  mkdir -p  /home/$login1/.mozilla/plugins
+                                        chown  -R      $login1:wheel       /home/$login1/.mozilla/plugins
+ln -s /usr/local/lib/browser_plugins/npwrapper.libflashplayer.so  /home/$login1/.mozilla/plugins
+
+
+
+
+
+
+
+
+
+
+
+

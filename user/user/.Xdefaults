@@ -1,0 +1,15 @@
+xterm*background: black 
+xterm*foreground: white 
+xterm*geometry: 70x30
+xterm*metaSendsEscape: true 
+xterm*fullCursor: true 
+xterm*saveLines: 2000 
+xterm*cursorColor: lightgreen 
+xterm*cursorColor2: lightblue 
+xterm*ScrollBar: true 
+xterm*ScrollBar.DrawBorder: false 
+xterm*rightScrollBar: true 
+xterm*Scrollbar.width:         9 
+xterm*Scrollbar.background:    black 
+xterm*Scrollbar.foreground:    lightgreen 
+xterm*font: -misc-fixed-medium-r-normal--20-200-75-75-c-100-koi8-r

@@ -1,0 +1,1 @@
+feh --bg-scale '/home/definitly/.config/openbox/1.jpg'

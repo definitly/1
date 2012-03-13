@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="root-menu" label="Openbox 3">
+		<item label="leafpad">
+			<action name="Execute">
+				<execute>
+					leafpad
+				</execute>
+			</action>
+		</item>
+		<item label="gtk-chtheme">
+			<action name="Execute">
+				<execute>
+					gtk-chtheme
+				</execute>
+			</action>
+		</item>
+		<item label="htop">
+			<action name="Execute">
+				<execute>
+				xterm -e	htop
+				</execute>
+			</action>
+		</item>
+
+<item label="linphone">
+			<action name="Execute">
+				<execute>
+				linphone
+				</execute>
+			</action>
+		</item>
+
+
+
+<item label="eclipse">
+			<action name="Execute">
+				<execute>
+				eclipse
+				</execute>
+			</action>
+		</item>
+
+
+
+
+
+
+<item label="emacs">
+			<action name="Execute">
+				<execute>
+				emacs
+				</execute>
+			</action>
+		</item>
+
+
+
+
+
+
+
+
+
+
+<item label="xpdf">
+			<action name="Execute">
+				<execute>
+				xpdf
+				</execute>
+			</action>
+		</item>
+
+
+<item label="pavucontrol">
+			<action name="Execute">
+				<execute>
+				pavucontrol 
+				</execute>
+			</action>
+		</item>
+
+
+
+<item label="paprefs">
+			<action name="Execute">
+				<execute>
+				paprefs 
+				</execute>
+			</action>
+		</item>
+
+
+
+
+		<item label="mc">
+			<action name="Execute">
+				<execute>
+					xterm -e mc
+				</execute>
+			</action>
+		</item>
+		<item label="xterm">
+			<action name="Execute">
+				<execute>
+					xterm -sb
+				</execute>
+			</action>
+		</item>
+
+<item label="firefox">
+			<action name="Execute">
+				<execute>
+					firefox
+				</execute>
+			</action>
+		</item>
+
+
+		<item label="mplayer">
+			<action name="Execute">
+				<execute>
+					gmplayer
+				</execute>
+			</action>
+		</item>
+		<item label="Web browser">
+			<action name="Execute">
+				<execute>
+					chrome
+				</execute>
+			</action>
+		</item>
+		<!-- This requires the presence of the 'menu' package to work -->
+		<menu id="Debian"/>
+		<separator/>
+		<menu id="client-list-menu"/>
+		<separator/>
+		<item label="obmenu">
+			<action name="Execute">
+				<execute>
+					obmenu
+				</execute>
+			</action>
+		</item>
+		<item label="ObConf">
+			<action name="Execute">
+				<execute>
+					obconf
+				</execute>
+			</action>
+		</item>
+		<item label="Reconfigure">
+			<action name="Reconfigure"/>
+		</item>
+		<item label="Restart">
+			<action name="Restart"/>
+		</item>
+		<separator/>
+		<item label="Exit">
+			<action name="Exit"/>
+		</item>
+	</menu>
+</openbox_menu>

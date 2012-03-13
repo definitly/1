@@ -1,0 +1,8 @@
+
+ echo "введите урл: "
+ read url
+ 
+
+ sp-sc-auth $url 3908 8908 > /dev/null &
+
+ mplayer http://localhost:8908/tv.asf 
