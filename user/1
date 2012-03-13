@@ -33,6 +33,10 @@ CURRENTDIRECTORY=$(pwd)
                     cp  $CURRENTDIRECTORY/xorg.conf  /etc/X11
                              kldload  nvidia
 
+
+#sp-cs-auth
+                    cp $CURRENTDIRECTORY/sp-sc-auth  /usr/local/bin
+
 #копирование   php.ini
                     cp  $CURRENTDIRECTORY/php.ini   /usr/local/etc
 
@@ -128,9 +132,6 @@ CURRENTDIRECTORY=$(pwd)
 ln -s /usr/local/lib/browser_plugins/npwrapper.libflashplayer.so  /home/$login1/.mozilla/plugins
 
 
-#sp-cs-auth
-
-cp $CURRENTDIRECTORY/sp-sc-auth  /usr/local/bin
 
 
 
