@@ -33,6 +33,49 @@
 
 
 
+<item label="wine-doors">
+			<action name="Execute">
+				<execute>
+				wine-doors
+				</execute>
+			</action>
+		</item>
+
+
+
+
+
+
+
+
+
+
+
+<item label="nvidia-settings">
+			<action name="Execute">
+				<execute>
+				nvidia-settings
+				</execute>
+			</action>
+		</item>
+
+
+
+
+
+
+
+<item label="okular">
+			<action name="Execute">
+				<execute>
+				/usr/local/kde4/bin/okular
+				</execute>
+			</action>
+		</item>
+
+
+
+
 <item label="eclipse">
 			<action name="Execute">
 				<execute>
@@ -40,6 +83,17 @@
 				</execute>
 			</action>
 		</item>
+
+
+
+<item label="virtualbox">
+			<action name="Execute">
+				<execute>
+				VirtualBox
+				</execute>
+			</action>
+		</item>
+
 
 
 
